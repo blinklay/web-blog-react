@@ -13,7 +13,7 @@ const AppColumn = styled.div`
 `;
 
 const Content = styled.div`
-  padding: 120px 0;
+  padding: 147px 0;
 `;
 
 const H2 = styled.h2`

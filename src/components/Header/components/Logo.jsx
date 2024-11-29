@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Icon from "../../Icon/Icon";
+import { Link } from "react-router-dom";
 
 const LargeText = styled.div`
   font-size: 68px;
@@ -19,14 +20,14 @@ const TextColumn = styled.div`
 
 function ContainerLogo({ className }) {
   return (
-    <div className={className}>
+    <Link to="/" className={className}>
       <Icon size="84px" id="fa-code" />
 
       <TextColumn>
         <LargeText>Блог</LargeText>
         <SmallText>вэб-разработчика</SmallText>
       </TextColumn>
-    </div>
+    </Link>
   );
 }
 
@@ -35,4 +36,5 @@ export const Logo = styled(ContainerLogo)`
   align-items: center;
   color: #1c1c1c;
   gap: 17px;
+  text-decoration: none;
 `;
