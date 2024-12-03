@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Icon from "../../Icon/Icon";
 import { Link, useNavigate } from "react-router-dom";
+import { Button } from "../../Button/Button";
 
 const Row = styled.div`
   display: flex;
@@ -9,23 +10,15 @@ const Row = styled.div`
   gap: ${({ gap }) => gap};
 `;
 
-const StyledLink = styled(Link)`
-  font-size: 18px;
-  width: 100px;
-  background-color: #eee;
-  padding: 5px;
-  text-align: center;
-  color: inherit;
-  text-decoration: none;
-`;
-
 const ControlPanelContainer = ({ className }) => {
   const navigate = useNavigate();
 
   return (
     <div className={className}>
       <Row gap="8px">
-        <StyledLink to="/login">Войти</StyledLink>
+        <Button width="100px">
+          <Link to="/login">Войти</Link>
+        </Button>
       </Row>
       <Row gap="10px">
         <button

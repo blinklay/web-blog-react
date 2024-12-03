@@ -22,7 +22,7 @@ export const server = {
     }
   },
   async autorize(authLogin, authPassword) {
-    const user = getUser(authLogin)
+    const user = await getUser(authLogin)
 
     if (!user) {
       return {

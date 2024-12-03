@@ -39,7 +39,7 @@ function FooterContainer({ className }) {
   );
 }
 
-const Footer = styled(FooterContainer)`
+export const Footer = styled(FooterContainer)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,5 +52,3 @@ const Footer = styled(FooterContainer)`
   bottom: 0;
   width: 1320px;
 `;
-
-export default Footer;

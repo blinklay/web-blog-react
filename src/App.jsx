@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import { Header } from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import { Footer } from "./components/Footer/Footer";
+import AuthPage from "./components/pages/AuthPage/AuthPage";
 
 const AppColumn = styled.div`
   display: flex;
@@ -17,20 +18,14 @@ const Content = styled.div`
   padding: 147px 0;
 `;
 
-const H2 = styled.h2`
-  text-align: center;
-`;
-
 function App() {
   return (
     <AppColumn>
       <Header />
       <Content>
-        <H2>Контент Страницы</H2>
-
         <Routes>
           <Route path="/" element={<div>Главная страница</div>} />
-          <Route path="/login" element={<div>Страница авторизации</div>} />
+          <Route path="/login" element={<AuthPage />} />
           <Route path="/register" element={<div>Страница регистрации</div>} />
           <Route path="/users" element={<div>Страница пользователей</div>} />
           <Route path="/post" element={<div>Страница новой статьи</div>} />
