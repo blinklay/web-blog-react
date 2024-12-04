@@ -8,6 +8,8 @@ import { Input } from "../../Input/Input";
 import { Button } from "../../Button/Button";
 import { Link } from "react-router-dom";
 import { H2 } from "../../H2/H2";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../../redux/actions/set-user";
 
 const authFormSchema = yup.object().shape({
   login: yup
@@ -25,6 +27,8 @@ const authFormSchema = yup.object().shape({
 });
 
 function AuthPageContanier({ className }) {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -45,7 +49,10 @@ function AuthPageContanier({ className }) {
     server.autorize(login, password).then(({ error, res }) => {
       if (error) {
         setServerError(`Ошибка запроса: ${error}`);
+        return;
       }
+
+      dispatch(setUser(res));
     });
   };
 

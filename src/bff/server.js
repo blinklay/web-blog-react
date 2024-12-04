@@ -1,10 +1,12 @@
+import { ROLE } from "../constants/role"
 import { addUser } from "./add-user"
 import { createSession } from "./create-session"
 import { getUser } from "./get-user"
+import { sessions } from "./sessions"
 
 export const server = {
   async register(regLogin, regPassword) {
-    const user = getUser(regLogin)
+    const user = await getUser(regLogin)
 
     if (user) {
       return {
@@ -18,7 +20,12 @@ export const server = {
 
     return {
       error: null,
-      res: createSession(user.role_id)
+      res: {
+        id: user.id,
+        login: user.login,
+        roleId: user.role_id,
+        session: sessions.create(user)
+      }
     }
   },
   async autorize(authLogin, authPassword) {
@@ -40,7 +47,12 @@ export const server = {
 
     return {
       error: null,
-      res: createSession(user.role_id)
+      res: {
+        id: user.id,
+        login: user.login,
+        roleId: user.role_id,
+        session: sessions.create(user)
+      }
     }
   }
 }
